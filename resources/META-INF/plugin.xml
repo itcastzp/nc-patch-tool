@@ -1,0 +1,34 @@
+<idea-plugin>
+    <id>com.ldx.PatcherDialog</id>
+    <name>patcher</name>
+    <version>v2</version>
+    <vendor>nzp</vendor>
+    <description>
+        Create NCC   project patch files.
+        v2 支持NCC client 导出方式
+    </description>
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/build_number_ranges.html for description -->
+    <idea-version since-build="203" />
+
+    <!-- please see http://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <notificationGroup id="Patcher" displayType="BALLOON"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <!--    设置 idea Action    -->
+        <action id="ldx.patcher" class="com.CreatePatcherAction" text="Create Patcher" description="Create Java SE and Java EE project patch files.">
+            <add-to-group group-id="ProjectViewPopupMenu" anchor="first"/>
+            <add-to-group group-id="Vcs.Log.ChangesBrowser.Popup" anchor="first"/><!-- Version Control-Log  -->
+            <add-to-group group-id="ChangesViewPopupMenu" anchor="first"/>      <!-- Version Control-Local Change  -->
+            <keyboard-shortcut first-keystroke="shift alt E" keymap="$default"/>
+        </action>
+    </actions>
+
+</idea-plugin>
